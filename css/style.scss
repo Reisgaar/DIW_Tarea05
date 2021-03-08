@@ -62,12 +62,13 @@ body {
 	font-family: Verdana;
 	margin: 0;
 	min-width: 300px;
+	background: linear-gradient(90deg, lightgrey 0%, transparent 25%, transparent 75%, lightgrey 100%);
 }
 
 
 // Bloque header
 .fondoheader{
-	background: linear-gradient(#b3b3b3, transparent 90%);
+	background: linear-gradient(#b3b3b3, transparent);
 }
 .header {
 	display: flex;
