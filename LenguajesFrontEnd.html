@@ -285,13 +285,6 @@
 				let firefoxAgent =  userAgentString.indexOf("Firefox") > -1;
 				console.log(firefoxAgent);
 				console.log(chromeAgent);
-				
-				if (!chromeAgent && !firefoxAgent) {
-					document.getElementById("dado").classList.add('cerrado');
-					document.getElementById("nodado").classList.remove('cerrado');
-					document.getElementById("pdado").classList.add('cerrado');
-					document.getElementById("pnodado").classList.remove('cerrado');
-				}
 			}
 
 			window.onload = checkBrowser;
