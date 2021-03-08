@@ -1,4 +1,27 @@
 /*
+	Para crear el css, en command line
+		- ubicar en la carpeta
+		- sass nombrearchivo.scss nombrearchivo.css
+			p.e.: sass style.scss style.css
+	
+		- para extended (por defecto) o compressed
+			sass --style=compressed nombrearchivo.scss nombrearchivo.css
+			* se suele nombrar el archivo nombrearchivo.min.css
+
+	Para que vaya actualizando solo
+		- sass --watch nombrearchivo.scss nombrearchivo.css
+
+	Flags de compilación
+		--no-source-map
+		--stop-on-error
+		--embred-source-map
+		--help
+		--quiet
+		--color / --no-color
+		--trace
+*/
+
+/*
 	Diseño de Aplicaciones web - Tarea 04
 
 	Asier García Aristu
@@ -9,16 +32,27 @@ $negro: black;
 $blanco: white;
 $rojoclaro: rgba(255, 80, 80, 0.1);
 $borderojo: 2px solid red;
+$grisoscuro: rgb(31, 31, 31);
+$alpha: rgba(0,0,0,0);
 
 // @mixin para hacer @include en los elementos centrados
 @mixin centrado {
 	margin: auto;
 }
 
+@mixin caradado {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position-x: center;
+	border: 3px solid black;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
 // Tamaños para las imágenes
 $images : (
 	"icon" : 25px,
-	"logo" : 80px,
+	"logo" : 90px,
 	"image" : 100px
 );
 
@@ -32,10 +66,14 @@ body {
 
 
 // Bloque header
+.fondoheader{
+	background: linear-gradient(#b3b3b3, #ffffff00);
+}
 .header {
 	display: flex;
 	width: 90%;
-	margin: 10px auto;
+	margin: 0px auto;
+	padding: 10px;
 	max-width: 1080px;
 
 	//Elementos dentro del header
@@ -46,7 +84,7 @@ body {
 
 	&__h1 {
 		text-align: center;
-		margin: 0px auto;
+		margin: 5px auto;
 	}
 
 	&__lang {
@@ -244,13 +282,271 @@ body {
 	}
 }
 
+
+// TAREA 05
+
+.destacado {
+	@include centrado;
+	max-width: 1200px;
+	padding: 1%;
+	margin-bottom: 25px;
+
+	&__titulo {
+		text-align: center;
+	}
+
+	&__img {
+		width: 100%;
+	}
+}
+
+.contenido {
+	@include centrado;
+	position: relative;
+	max-width: 1200px;
+	padding: 0 1%;
+    text-align: center;
+	margin-bottom: 25px;
+	border: 3px solid black;
+    border-radius: 15px;
+    width: 95%;
+    background-color: lightgrey;
+
+	&__bloque {
+		display: inline-block;
+		width: 30%;
+		padding: 0 1%;
+		text-align: center;
+		margin: 25px 0;
+
+		&__img {
+			width: 100%;
+		}
+
+		&__texto {
+			font-size: 0.7em;
+			margin: 5px;
+		}
+	}
+
+	&__tarjeta {
+		margin: auto auto 25px;
+		background: linear-gradient(0deg, #505050, #272727, #272727, #505050);
+		border: 2px solid black;
+		border-radius: 5px;
+		padding: 15px;
+		width: 90%;
+		right: 0;
+		color: white;
+
+		&--titulo {
+			text-align: center;
+			margin: 15px auto 30px;
+		}
+
+		&--descripcion {
+			text-align: left;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		#html &--link{
+			background-color:orange;
+
+			&:hover {
+				background-color: black;
+				border-color: white;
+				color: orange;
+				transform: scale(1.1);
+			}
+		}
+
+		#css &--link{
+			background-color:dodgerblue;
+
+			&:hover {
+				background-color: black;
+				border-color: white;
+				color: dodgerblue;
+				transform: scale(1.1);
+			}
+		}
+
+		#js &--link{
+			background-color:limegreen;
+
+			&:hover {
+				background-color: black;
+				border-color: white;
+				color: limegreen;
+				transform: scale(1.1);
+			}
+		}
+		
+		&--link {
+			text-align: center;
+			color:black;
+			padding: 5px 3px;
+			border-radius: 15px;
+			border: 2px solid black;
+			width: 200px;
+			font-weight: bold;
+			margin:auto;
+		}
+	}
+}
+
+
+// Separador de bloques
+
+.separador {
+	background-color: rgba(0,0,0,0.5);
+	margin: auto;
+	width: 95%;
+	max-width: 1300px;
+	height: 2px;
+}
+
+
+//dado de 6 caras
+
+.d6{
+	width: 120px;
+	height: 120px;
+	margin: 50px auto;
+}
+
+.rotardado div {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+}
+
+.rotardado .cara1 {
+	@include caradado;
+	background-color:sandybrown;
+	background-image: url(/images/HTML.png);
+    -webkit-transform: translateZ(50px);
+    -moz-transform: translateZ(50px);
+    -ms-transform: translateZ(50px);
+    transform: translateZ(50px);
+}
+.rotardado .cara2 {
+	@include caradado;
+	background-color:lightblue;
+	background-image: url(/images/CSS.png);
+    -webkit-transform: rotateY(90deg) translateZ(50px);
+    -moz-transform: rotateY(90deg) translateZ(50px);
+    -ms-transform: rotateY(90deg) translateZ(50px);
+    transform: rotateY(90deg) translateZ(50px);
+}
+.rotardado .cara3 {
+	@include caradado;
+	background-color:lightgreen;
+	background-image: url(/images/JS.png);
+    -webkit-transform: rotateY(90deg) rotateX(90deg) translateZ(50px);
+    -moz-transform: rotateY(90deg) rotateX(90deg) translateZ(50px);
+    -ms-transform: rotateY(90deg) rotateX(90deg) translateZ(50px);
+    transform: rotateY(90deg) rotateX(90deg) translateZ(50px);
+}
+.rotardado .cara4 {
+	@include caradado;
+	background-color:lightgreen;
+	background-image: url(/images/JS.png);
+    -webkit-transform: rotateX(-90deg) translateZ(50px);
+    -moz-transform: rotateX(-90deg) translateZ(50px);
+    -ms-transform: rotateX(-90deg) translateZ(50px);
+    transform: rotateX(-90deg) translateZ(50px);
+}
+.rotardado .cara5 {
+	@include caradado;
+	background-color:lightblue;
+	background-image: url(/images/CSS.png);
+    -webkit-transform: rotateY(-90deg) rotateZ(90deg) translateZ(50px);
+    -moz-transform: rotateY(-90deg) rotateZ(90deg) translateZ(50px);
+    -ms-transform: rotateY(-90deg) rotateZ(90deg) translateZ(50px);
+    transform: rotateY(-90deg) rotateZ(90deg) translateZ(50px);
+}
+.rotardado .cara6 {
+	@include caradado;
+	background-color:sandybrown;
+	background-image: url(/images/HTML.png);
+    -webkit-transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+    -moz-transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+    -ms-transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+    transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+}
+
+.nodado{
+	width: 80%;
+	margin: auto;
+	display: flex;
+
+	.lenguajes {
+		margin: auto;
+		cursor: pointer;
+
+		&__img{
+			width: 75px;
+    margin: 5px;
+		}
+	}
+}
+
+
 // Breakpoints de la página
-@media (max-width: 768px) {
+@media (min-width: 1242px) {
+	.animacion{
+
+		&__1 {
+			height: 401px !important;
+			width: 206px !important;
+			top: -88px !important;
+			left: 770px !important;
+
+			&__pantalla {
+				
+				p {
+				font-size: 18.6px !important;
+				/*font-size: 1.165em;*/
+
+					&:first-child {
+						font-size: 24.9px !important;
+					}
+				}
+				
+				.divbtn {
+					
+					input {
+						font-size: 21px !important;
+						padding: 6.3px 10px !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 830px) {
 	// Modifica la anchura del título
 	.header {
 
 		&__h1 {
 			width: 270px;
+		}
+	}
+
+
+	// TAREA 05
+
+	.contenido {
+		text-align: unset;
+
+		&__bloque {
+			width: 45%;
 		}
 	}
 }
@@ -283,9 +579,10 @@ body {
 	.header {
 		display: block;
 		text-align: center;
+		height: 200px;
 
 		&__img {
-			transform: translate(0px, 100px);		
+			transform: translate(0px, 115px);		
 		}
 	
 		&__h1 {
@@ -311,4 +608,221 @@ body {
 			}
 		}
 	}
+
+
+	// TAREA 05
+
+	.contenido {
+
+		&__bloque {
+			display: block;
+			width: 95%;
+			margin: 40px auto;
+		}
+	}
+
+	.pantallanegra, .animacion__1 {
+		display:none;
+	}
+	
+	.mano {
+		display: none;
+
+		&__img {
+			display: none;
+		}
+	}
 }
+
+
+
+.cerrado {
+	display: none;
+}
+.animacion{
+	position: relative;
+	perspective: 2200px;
+
+	.pantallanegra:before {
+		position: absolute;
+		content:'';
+		background-color: black;
+		height: 116%;
+		width: 17.2%;
+		top: -25.4%;
+		left: 64.2%;
+		transform-style: preserve-3d;
+		transform: rotateX(41deg) rotateY(4deg) rotateZ(-93.3deg) skew(1deg, 0deg);
+	}
+
+	.mano {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+
+		&__img {
+			position: absolute;
+			width: 15%;
+			top: 0%;
+			left: 100%;
+		}
+	}
+
+	&__1{
+		position: absolute;
+		background-image: url(/images/daibutsu.jpg);
+		background-size: cover;
+		background-position-x: center;
+		z-index: 1;
+		height: 116%;
+		width: 17.2%;
+		top: -25.4%;
+		left: 64.2%;
+		transform-style: preserve-3d;
+		transform: rotateX(41deg) rotateY(4deg) rotateZ(-93.3deg) skew(1deg, 0deg);
+
+		&__pantalla {
+			position:relative;
+
+			p {
+				font-size: 1.5vw;
+				font-weight: bold;
+				text-align: center;
+				color: white;
+				text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+				&:first-child {
+					font-size: 2vw;
+				}
+			}
+
+			.divbtn {
+				text-align: center;
+
+				input {
+					font-size: 1.7vw;
+					background-color: darkblue;
+					color: white;
+					border-radius: 15px;
+					padding: 3% 5%;
+					cursor: pointer;
+					
+
+					&:hover {
+						background-color: lightsteelblue;
+						color: black;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+// ANIMACIONES
+
+// Mano que pulsa botón del móvil
+@keyframes animarmano {
+	0% {left: 100%; top: 0%;}
+	50% {left: 89%; top: 8%; transform: rotate(-15deg);}
+	90% {left:100%; top: -5%; transform: rotate(0deg);}
+	100% {display:none;}
+}
+
+.animarmano {
+	animation-name: animarmano;
+	animation-duration: 4s;
+	animation-timing-function: ease;
+}
+
+
+// Aparece la pantalla de bloqueo
+@keyframes  encender {
+	0% {opacity: 0;}
+	98% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+.encender {
+	animation-name: encender;
+	animation-duration: 2s;
+}
+
+
+// Aparece en texto de la pantalla de bloqueo
+@keyframes aparecetexto {
+	0% {transform: scale(0.0);}
+	45% {transform: scale(0.0);}
+	100% {transform: scale(1);}
+}
+
+.aparecetexto {
+	animation-name: aparecetexto;
+	animation-duration: 4s;
+}
+
+
+// Desaparece la pantalla de bloqueo
+@keyframes quitarpantalla {
+	0% {opacity:1;}
+	49% {opacity:0;display:block;}
+	50% {display:none;}
+	100% {display:none;}
+}
+
+.quitarpantalla {
+	animation-name: quitarpantalla;
+	animation-duration: 4s;
+}
+
+
+// Movimiento del dado
+@-webkit-keyframes moverdado {
+    0%	 { -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+    66%  { -webkit-transform: rotateX(180deg) rotateY(120deg) rotateZ(240deg); }
+    83%  { -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+  }
+
+@keyframes moverdado {
+    0% {
+		-moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+		-ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+		transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	}
+	50% {
+		-moz-transform: rotateX(180deg) rotateY(120deg) rotateZ(240deg);
+		-ms-transform: rotateX(180deg) rotateY(120deg) rotateZ(240deg);
+		transform: rotateX(180deg) rotateY(120deg) rotateZ(240deg);
+	}
+	100% {
+		-moz-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+		-ms-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+		transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+	}
+}
+
+.rotardado {
+    -webkit-animation-name: moverdado;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 12s;
+
+    animation-name: moverdado;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 12s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    -webkit-transform-origin: 50px 50px 0;
+    -moz-transform-origin: 50px 50px 0;
+    -ms-transform-origin: 50px 50px 0;
+    transform-origin: 50px 50px 0;
+  }

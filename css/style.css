@@ -1,5 +1,27 @@
 @charset "UTF-8";
 /*
+	Para crear el css, en command line
+		- ubicar en la carpeta
+		- sass nombrearchivo.scss nombrearchivo.css
+			p.e.: sass style.scss style.css
+
+		- para extended (por defecto) o compressed
+			sass --style=compressed nombrearchivo.scss nombrearchivo.css
+			* se suele nombrar el archivo nombrearchivo.min.css
+
+	Para que vaya actualizando solo
+		- sass --watch nombrearchivo.scss nombrearchivo.css
+
+	Flags de compilación
+		--no-source-map
+		--stop-on-error
+		--embred-source-map
+		--help
+		--quiet
+		--color / --no-color
+		--trace
+*/
+/*
 	Diseño de Aplicaciones web - Tarea 04
 
 	Asier García Aristu
@@ -10,19 +32,24 @@ body {
   min-width: 300px;
 }
 
+.fondoheader {
+  background: linear-gradient(#b3b3b3, #ffffff00);
+}
+
 .header {
   display: flex;
   width: 90%;
-  margin: 10px auto;
+  margin: 0px auto;
+  padding: 10px;
   max-width: 1080px;
 }
 .header__img {
-  width: 80px;
+  width: 90px;
   margin-left: 5px;
 }
 .header__h1 {
   text-align: center;
-  margin: 0px auto;
+  margin: 5px auto;
 }
 .header__lang {
   float: right;
@@ -164,7 +191,7 @@ body {
   padding: 10px 10px 25px 10px;
 }
 .footer__img {
-  width: 80px;
+  width: 90px;
 }
 .footer__address p {
   font-size: 0.8em;
@@ -174,9 +201,257 @@ body {
   margin: 5px 0px;
 }
 
-@media (max-width: 768px) {
+.destacado {
+  margin: auto;
+  max-width: 1200px;
+  padding: 1%;
+  margin-bottom: 25px;
+}
+.destacado__titulo {
+  text-align: center;
+}
+.destacado__img {
+  width: 100%;
+}
+
+.contenido {
+  margin: auto;
+  position: relative;
+  max-width: 1200px;
+  padding: 0 1%;
+  text-align: center;
+  margin-bottom: 25px;
+  border: 3px solid black;
+  border-radius: 15px;
+  width: 95%;
+  background-color: lightgrey;
+}
+.contenido__bloque {
+  display: inline-block;
+  width: 30%;
+  padding: 0 1%;
+  text-align: center;
+  margin: 25px 0;
+}
+.contenido__bloque__img {
+  width: 100%;
+}
+.contenido__bloque__texto {
+  font-size: 0.7em;
+  margin: 5px;
+}
+.contenido__tarjeta {
+  margin: auto auto 25px;
+  background: linear-gradient(0deg, #505050, #272727, #272727, #505050);
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 15px;
+  width: 90%;
+  right: 0;
+  color: white;
+}
+.contenido__tarjeta--titulo {
+  text-align: center;
+  margin: 15px auto 30px;
+}
+.contenido__tarjeta--descripcion {
+  text-align: left;
+}
+.contenido__tarjeta a {
+  text-decoration: none;
+}
+#html .contenido__tarjeta--link {
+  background-color: orange;
+}
+#html .contenido__tarjeta--link:hover {
+  background-color: black;
+  border-color: white;
+  color: orange;
+  transform: scale(1.1);
+}
+#css .contenido__tarjeta--link {
+  background-color: dodgerblue;
+}
+#css .contenido__tarjeta--link:hover {
+  background-color: black;
+  border-color: white;
+  color: dodgerblue;
+  transform: scale(1.1);
+}
+#js .contenido__tarjeta--link {
+  background-color: limegreen;
+}
+#js .contenido__tarjeta--link:hover {
+  background-color: black;
+  border-color: white;
+  color: limegreen;
+  transform: scale(1.1);
+}
+.contenido__tarjeta--link {
+  text-align: center;
+  color: black;
+  padding: 5px 3px;
+  border-radius: 15px;
+  border: 2px solid black;
+  width: 200px;
+  font-weight: bold;
+  margin: auto;
+}
+
+.separador {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: auto;
+  width: 95%;
+  max-width: 1300px;
+  height: 2px;
+}
+
+.d6 {
+  width: 120px;
+  height: 120px;
+  margin: 50px auto;
+}
+
+.rotardado div {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.rotardado .cara1 {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  border: 3px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: sandybrown;
+  background-image: url(/images/HTML.png);
+  -webkit-transform: translateZ(50px);
+  -moz-transform: translateZ(50px);
+  -ms-transform: translateZ(50px);
+  transform: translateZ(50px);
+}
+
+.rotardado .cara2 {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  border: 3px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightblue;
+  background-image: url(/images/CSS.png);
+  -webkit-transform: rotateY(90deg) translateZ(50px);
+  -moz-transform: rotateY(90deg) translateZ(50px);
+  -ms-transform: rotateY(90deg) translateZ(50px);
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.rotardado .cara3 {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  border: 3px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightgreen;
+  background-image: url(/images/JS.png);
+  -webkit-transform: rotateY(90deg) rotateX(90deg) translateZ(50px);
+  -moz-transform: rotateY(90deg) rotateX(90deg) translateZ(50px);
+  -ms-transform: rotateY(90deg) rotateX(90deg) translateZ(50px);
+  transform: rotateY(90deg) rotateX(90deg) translateZ(50px);
+}
+
+.rotardado .cara4 {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  border: 3px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightgreen;
+  background-image: url(/images/JS.png);
+  -webkit-transform: rotateX(-90deg) translateZ(50px);
+  -moz-transform: rotateX(-90deg) translateZ(50px);
+  -ms-transform: rotateX(-90deg) translateZ(50px);
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+.rotardado .cara5 {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  border: 3px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightblue;
+  background-image: url(/images/CSS.png);
+  -webkit-transform: rotateY(-90deg) rotateZ(90deg) translateZ(50px);
+  -moz-transform: rotateY(-90deg) rotateZ(90deg) translateZ(50px);
+  -ms-transform: rotateY(-90deg) rotateZ(90deg) translateZ(50px);
+  transform: rotateY(-90deg) rotateZ(90deg) translateZ(50px);
+}
+
+.rotardado .cara6 {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  border: 3px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: sandybrown;
+  background-image: url(/images/HTML.png);
+  -webkit-transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+  -moz-transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+  -ms-transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+  transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+}
+
+.nodado {
+  width: 80%;
+  margin: auto;
+  display: flex;
+}
+.nodado .lenguajes {
+  margin: auto;
+  cursor: pointer;
+}
+.nodado .lenguajes__img {
+  width: 75px;
+  margin: 5px;
+}
+
+@media (min-width: 1242px) {
+  .animacion__1 {
+    height: 401px !important;
+    width: 206px !important;
+    top: -88px !important;
+    left: 770px !important;
+  }
+  .animacion__1__pantalla p {
+    font-size: 18.6px !important;
+    /*font-size: 1.165em;*/
+  }
+  .animacion__1__pantalla p:first-child {
+    font-size: 24.9px !important;
+  }
+  .animacion__1__pantalla .divbtn input {
+    font-size: 21px !important;
+    padding: 6.3px 10px !important;
+  }
+}
+@media (max-width: 830px) {
   .header__h1 {
     width: 270px;
+  }
+
+  .contenido {
+    text-align: unset;
+  }
+  .contenido__bloque {
+    width: 45%;
   }
 }
 @media (max-width: 600px) {
@@ -195,9 +470,10 @@ body {
   .header {
     display: block;
     text-align: center;
+    height: 200px;
   }
   .header__img {
-    transform: translate(0px, 100px);
+    transform: translate(0px, 115px);
   }
   .header__h1 {
     transform: translate(0px, -50px);
@@ -215,6 +491,220 @@ body {
     display: block;
     text-align: center;
   }
+
+  .contenido__bloque {
+    display: block;
+    width: 95%;
+    margin: 40px auto;
+  }
+
+  .pantallanegra, .animacion__1 {
+    display: none;
+  }
+
+  .mano {
+    display: none;
+  }
+  .mano__img {
+    display: none;
+  }
+}
+.cerrado {
+  display: none;
+}
+
+.animacion {
+  position: relative;
+  perspective: 2200px;
+}
+.animacion .pantallanegra:before {
+  position: absolute;
+  content: "";
+  background-color: black;
+  height: 116%;
+  width: 17.2%;
+  top: -25.4%;
+  left: 64.2%;
+  transform-style: preserve-3d;
+  transform: rotateX(41deg) rotateY(4deg) rotateZ(-93.3deg) skew(1deg, 0deg);
+}
+.animacion .mano {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.animacion .mano__img {
+  position: absolute;
+  width: 15%;
+  top: 0%;
+  left: 100%;
+}
+.animacion__1 {
+  position: absolute;
+  background-image: url(/images/daibutsu.jpg);
+  background-size: cover;
+  background-position-x: center;
+  z-index: 1;
+  height: 116%;
+  width: 17.2%;
+  top: -25.4%;
+  left: 64.2%;
+  transform-style: preserve-3d;
+  transform: rotateX(41deg) rotateY(4deg) rotateZ(-93.3deg) skew(1deg, 0deg);
+}
+.animacion__1__pantalla {
+  position: relative;
+}
+.animacion__1__pantalla p {
+  font-size: 1.5vw;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+.animacion__1__pantalla p:first-child {
+  font-size: 2vw;
+}
+.animacion__1__pantalla .divbtn {
+  text-align: center;
+}
+.animacion__1__pantalla .divbtn input {
+  font-size: 1.7vw;
+  background-color: darkblue;
+  color: white;
+  border-radius: 15px;
+  padding: 3% 5%;
+  cursor: pointer;
+}
+.animacion__1__pantalla .divbtn input:hover {
+  background-color: lightsteelblue;
+  color: black;
+  font-weight: bold;
+}
+
+@keyframes animarmano {
+  0% {
+    left: 100%;
+    top: 0%;
+  }
+  50% {
+    left: 89%;
+    top: 8%;
+    transform: rotate(-15deg);
+  }
+  90% {
+    left: 100%;
+    top: -5%;
+    transform: rotate(0deg);
+  }
+  100% {
+    display: none;
+  }
+}
+.animarmano {
+  animation-name: animarmano;
+  animation-duration: 4s;
+  animation-timing-function: ease;
+}
+
+@keyframes encender {
+  0% {
+    opacity: 0;
+  }
+  98% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.encender {
+  animation-name: encender;
+  animation-duration: 2s;
+}
+
+@keyframes aparecetexto {
+  0% {
+    transform: scale(0);
+  }
+  45% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.aparecetexto {
+  animation-name: aparecetexto;
+  animation-duration: 4s;
+}
+
+@keyframes quitarpantalla {
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 0;
+    display: block;
+  }
+  50% {
+    display: none;
+  }
+  100% {
+    display: none;
+  }
+}
+.quitarpantalla {
+  animation-name: quitarpantalla;
+  animation-duration: 4s;
+}
+
+@-webkit-keyframes moverdado {
+  0% {
+    -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  66% {
+    -webkit-transform: rotateX(180deg) rotateY(120deg) rotateZ(240deg);
+  }
+  83% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+@keyframes moverdado {
+  0% {
+    -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  50% {
+    -moz-transform: rotateX(180deg) rotateY(120deg) rotateZ(240deg);
+    -ms-transform: rotateX(180deg) rotateY(120deg) rotateZ(240deg);
+    transform: rotateX(180deg) rotateY(120deg) rotateZ(240deg);
+  }
+  100% {
+    -moz-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    -ms-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+.rotardado {
+  -webkit-animation-name: moverdado;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 12s;
+  animation-name: moverdado;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 12s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: 50px 50px 0;
+  -moz-transform-origin: 50px 50px 0;
+  -ms-transform-origin: 50px 50px 0;
+  transform-origin: 50px 50px 0;
 }
 
 /*# sourceMappingURL=style.css.map */
