@@ -785,7 +785,7 @@ body {
     0%	 { -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
     66%  { -webkit-transform: rotateX(180deg) rotateY(120deg) rotateZ(240deg); }
     83%  { -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
-  }
+}
 
 @keyframes moverdado {
     0% {
@@ -825,4 +825,4 @@ body {
     -moz-transform-origin: 50px 50px 0;
     -ms-transform-origin: 50px 50px 0;
     transform-origin: 50px 50px 0;
-  }
+}
