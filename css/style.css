@@ -34,7 +34,7 @@ body {
 }
 
 .fondoheader {
-  background: linear-gradient(#b3b3b3, #ffffff00);
+  background: linear-gradient(#b3b3b3, transparent);
 }
 
 .header {
