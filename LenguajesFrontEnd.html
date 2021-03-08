@@ -278,12 +278,24 @@
 			 */
 			function checkBrowser() { 
 				// Get the user-agent string 
-				let userAgentString = navigator.userAgent;	
+				let userAgentString = navigator.userAgent;				
+				// Detect Chrome 
+				let chromeAgent =  userAgentString.indexOf("Chrome") > -1; 
+				// Detect Firefox 
+				let firefoxAgent =  userAgentString.indexOf("Firefox") > -1;
 				// Detect Internet Explorer 
-					let IExplorerAgent = userAgentString.indexOf("MSIE") > -1 ||  userAgentString.indexOf("rv:") > -1; 
-					console.log(IExplorerAgent);
+				let IExplorerAgent = userAgentString.indexOf("MSIE") > -1 || userAgentString.indexOf("rv:") > -1; 
+				// Detect Safari 
+				let safariAgent = userAgentString.indexOf("Safari") > -1; 
+				// Discard Safari since it also matches Chrome 
+				if ((chromeAgent) && (safariAgent)) {safariAgent = false;}
+
+				console.log('fire'+firefoxAgent);
+				console.log('chro'+chromeAgent);
+				console.log('IE'+IExplorerAgent);
+				console.log('safa'+safariAgent);
 				
-				if (IExplorerAgent) {
+				if (!chromeAgent && !firefoxAgent) {
 					document.getElementById("dado").classList.add('cerrado');
 					document.getElementById("nodado").classList.remove('cerrado');
 					document.getElementById("pdado").classList.add('cerrado');
