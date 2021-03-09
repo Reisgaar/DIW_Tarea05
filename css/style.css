@@ -242,7 +242,7 @@ body {
   margin: 5px;
 }
 .contenido__tarjeta {
-  margin: auto auto 25px;
+  margin: auto auto 40px;
   background: linear-gradient(0deg, #505050, #272727, #272727, #505050);
   border: 2px solid black;
   border-radius: 5px;
@@ -408,6 +408,16 @@ body {
   -moz-transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
   -ms-transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
   transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+}
+
+.btnanimacion {
+  position: absolute;
+  bottom: 1%;
+  width: 100%;
+  text-align: center;
+}
+.btnanimacion input {
+  padding: 5px;
 }
 
 .nodado {

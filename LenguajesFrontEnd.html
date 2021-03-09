@@ -161,6 +161,10 @@
 					<div class="cara6" onclick="cambiar('html', 'css', 'js')"></div>
 				</div>
 			</div>
+			<div class="btnanimacion">
+				<input type="button" value="Quitar animación" id="animacionon" onclick="animacion();">
+				<input type="button" value="Activar animación" id="animacionoff" class="cerrado" onclick="animacion();">
+			</div>
 			<div class="nodado cerrado" id="nodado">
 				<div class="lenguajes" onclick="cambiar('html', 'css', 'js')"><img src="images/HTML.png" alt="Logo de HTML." class="lenguajes__img"/></div>
 				<div class="lenguajes" onclick="cambiar('css', 'html', 'js')"><img src="images/CSS.png" alt="Logo de CSS." class="lenguajes__img"/></div>
@@ -270,6 +274,24 @@
 				document.getElementById(elemento1).classList.remove('cerrado');
 			}
 
+			function animacion() {
+				if(document.getElementById("dado").classList.contains('cerrado')) {
+					document.getElementById("dado").classList.remove('cerrado');
+					document.getElementById("nodado").classList.add('cerrado');
+					document.getElementById("pdado").classList.remove('cerrado');
+					document.getElementById("pnodado").classList.add('cerrado');
+					document.getElementById("animacionon").classList.remove('cerrado');
+					document.getElementById("animacionoff").classList.add('cerrado');
+				}
+				else {
+					document.getElementById("dado").classList.add('cerrado');
+					document.getElementById("nodado").classList.remove('cerrado');
+					document.getElementById("pdado").classList.add('cerrado');
+					document.getElementById("pnodado").classList.remove('cerrado');
+					document.getElementById("animacionoff").classList.remove('cerrado');
+					document.getElementById("animacionon").classList.add('cerrado');
+				}
+			}
 
 			/* 
 			 *  Como me daba problemas IE, y otros navegadores no sé si soportan bien el 3d del dado
@@ -290,6 +312,8 @@
 					document.getElementById("nodado").classList.remove('cerrado');
 					document.getElementById("pdado").classList.add('cerrado');
 					document.getElementById("pnodado").classList.remove('cerrado');
+					document.getElementById("animacionon").classList.add('cerrado');
+					document.getElementById("animacionoff").classList.add('cerrado');
 				}
 			}
 
